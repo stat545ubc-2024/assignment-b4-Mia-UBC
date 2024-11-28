@@ -1,5 +1,5 @@
 ---
-title: "Exercise 1"
+title: "Exercise 2"
 author: "Mia Simmons"
 date: "2024-11-28"
 output: github_document
@@ -11,29 +11,27 @@ output: github_document
 
 ---
 
-# Code
+# Coding
 
 ## Setup
 
-
-
 ```{r}
-
-library(tidyverse)
-library(tidytext)
-library(dplyr)
-library(janeaustenr)
-
-```
-## Filtering the dataset
-
-```{r}
-
-
 
 ```
 
-## Plotting the words
+## Function
+
+```{r}
+
+```
+
+## Examples
+
+```{r}
+
+```
+
+## Tests
 
 ```{r}
 
@@ -42,4 +40,3 @@ library(janeaustenr)
 ---
 
 # Conclusion
-
