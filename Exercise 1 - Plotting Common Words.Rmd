@@ -1,0 +1,41 @@
+---
+title: "Exercise 1"
+author: "Mia Simmons"
+date: "2024-11-28"
+output: github_document
+---
+
+# Introduction
+
+
+
+---
+
+# Code
+
+## Setup
+
+
+
+```{r}
+
+library(tidyverse)
+library(tidytext)
+library(dplyr)
+library(janeaustenr)
+
+```
+## Filtering...
+
+```{r}
+
+
+
+```
+
+## Plotting
+
+```{r}
+
+```
+
