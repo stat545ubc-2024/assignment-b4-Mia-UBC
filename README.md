@@ -1,1 +1,21 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/TgL49qdK)
+# Introduction
+
+This repo contains the code for Exercise 1 and Exercise 2 from Part A of Assignment B4.
+
+---
+
+## Exercise 1
+
+This code produces a graph of the 10 most common words from Jane Austen's book <ins>Persuasion</ins>, not including stop words.
+
+---
+
+## Exercise 2
+
+This code produces the function *cat_latin* which converts text into the newly created Cat Latin. In Cat Latin, the last letter of the word is moved to the front, the word is repeated, and -meow is added to the end of the word.
+
+---
+
+## Usage
+
+This code can be run by forking the repo and cloning it into R.
