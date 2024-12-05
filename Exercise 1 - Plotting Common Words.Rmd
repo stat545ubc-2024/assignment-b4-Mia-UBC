@@ -7,29 +7,49 @@ output: github_document
 
 # Introduction
 
+Welcome to Exercise 1! Here, the 10 most common words in Jane Austen's book [Persuasion]{.underline}, excluding stop words, will be plotted.
 
-
----
+------------------------------------------------------------------------
 
 # Code
 
 ## Setup
 
-
-
-```{r}
+```{r setup}
 
 library(tidyverse)
 library(tidytext)
 library(dplyr)
 library(janeaustenr)
+library(stopwords)
+library(purrr)
 
 ```
+
 ## Filtering the dataset
 
-```{r}
+```{r filter}
 
+# First, let's take a look at what we're starting with
 
+glimpse(persuasion)
+  
+# Now, let's split all the words apart, render them in lowercase, and remove whitespace
+
+words_per <- strsplit(janeaustenr::persuasion, "\\s+") %>%
+  unlist() %>%
+  tolower() %>%
+  str_remove_all("[^a-z\\s]")
+
+# Lastly, we need to remove stop words and make a tibble with the counts of each word
+
+stopwords_list <- str_to_lower(stopwords("en"))
+
+per_table <- words_per[!words_per %in% stopwords_list] %>%
+  table() %>%
+  as.tibble() %>%
+  setNames(c("words", "count")) %>%
+  arrange(desc(count))
 
 ```
 
@@ -37,9 +57,22 @@ library(janeaustenr)
 
 ```{r}
 
+# First, we need to make a subset of the data with only the ten most common words
+
+
+
 ```
 
----
+```{r}
+
+# Then, we must render the plot of the words
+
+ggplot(per_table, aes(words)) +
+         geom_bar()
+
+```
+
+
+------------------------------------------------------------------------
 
 # Conclusion
-
