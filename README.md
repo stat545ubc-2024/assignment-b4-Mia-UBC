@@ -19,3 +19,11 @@ This code produces the function *cat_latin* which converts text into the newly c
 ## Usage
 
 This code can be run by forking the repo and cloning it into R.
+
+---
+
+## Acknowledgements
+
+The text for <ins>Persuasion</ins> comes from the *janeaustenr* package.
+
+Special thanks to Imogen Porter and Julia Desbiens for helping me trouble-shoot my code!
