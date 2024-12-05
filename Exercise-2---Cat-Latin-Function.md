@@ -1,7 +1,5 @@
 Exercise 2
 ================
-Mia Simmons
-2024-11-28
 
 # Introduction
 
@@ -15,6 +13,8 @@ the word has “-meow” added to it.
 # Coding
 
 ## Setup
+
+Load these libraries to ensure the following code can run correctly.
 
 ``` r
 library(dplyr)
@@ -90,11 +90,14 @@ library(testthat)
 
 ## Function
 
+This code-chunk creates the function *cat_latin*. It is annotated with
+unredered roxygen2 tags.
+
 ``` r
 #' Convert words into Cat Latin
 #'
 #' @description
-#'Moves the last letter of a word to the front and adds "-meow" to the end of it. Can be applied to lists of words, and is only applicable to character vectors.
+#'Moves the last letter of a word to the front, repeats the word, and adds "-meow" to the end of it. Can be applied to lists of words, and is only applicable to character vectors.
 #'
 #' @param x The character vector or list of vectors to be used.
 #'
@@ -120,6 +123,8 @@ cat_latin <- function(x) {
 
 ## Examples
 
+Three examples of *cat_latin()* in use.
+
 ``` r
 # Convert a one word string to Cat Latin
 
@@ -138,7 +143,15 @@ cat_latin(y)
 
     ## [1] "tcacat-meow" "gdodog-meow"
 
+``` r
+# The following code will result in an error message, as *cat_latin()* cannot be applied to a number. It is commented out so that the file can be knitted.
+
+# cat_latin(1)
+```
+
 ## Tests
+
+Three tests to demonstrate that *cat_latin()* works as expected.
 
 ``` r
 # Test 1 - Non-character inputs result in an error
@@ -148,7 +161,7 @@ test_that("Non-character input error", {
 })
 ```
 
-    ## Test passed 😸
+    ## Test passed 🎊
 
 ``` r
 # Test 2 - The function prints the result to the console
@@ -158,7 +171,7 @@ test_that("Print result", {
 })
 ```
 
-    ## Test passed 🌈
+    ## Test passed 🎊
 
 ``` r
 # Test 3 - Output is the expected class
@@ -168,7 +181,7 @@ test_that("Expect output to be a character vector", {
 })
 ```
 
-    ## Test passed 🌈
+    ## Test passed 🎊
 
 ------------------------------------------------------------------------
 
@@ -176,5 +189,5 @@ test_that("Expect output to be a character vector", {
 
 In conclusion, this Exercise shows the development of the function
 *cat_latin*, which converts words into the newly developed Cat Latin
-Cipher. Two examples were shown, and three tests run to show that the
+Cipher. Three examples were shown, and three tests run to show that the
 function works properly.

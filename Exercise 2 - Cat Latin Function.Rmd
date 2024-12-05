@@ -1,7 +1,5 @@
 ---
 title: "Exercise 2"
-author: "Mia Simmons"
-date: "2024-11-28"
 output: github_document
 ---
 
@@ -15,6 +13,8 @@ Welcome to Exercise 2! Here, we will make a function that will convert words int
 
 ## Setup
 
+Load these libraries to ensure the following code can run correctly.
+
 ```{r setup}
 
 library(dplyr)
@@ -26,11 +26,13 @@ library(testthat)
 
 ## Function
 
+This code-chunk creates the function *cat_latin*. It is annotated with unredered roxygen2 tags.
+
 ```{r create function}
 #' Convert words into Cat Latin
 #'
 #' @description
-#'Moves the last letter of a word to the front and adds "-meow" to the end of it. Can be applied to lists of words, and is only applicable to character vectors.
+#'Moves the last letter of a word to the front, repeats the word, and adds "-meow" to the end of it. Can be applied to lists of words, and is only applicable to character vectors.
 #'
 #' @param x The character vector or list of vectors to be used.
 #'
@@ -57,6 +59,8 @@ cat_latin <- function(x) {
 
 ## Examples
 
+Three examples of *cat_latin()* in use.
+
 ```{r one word}
 
 # Convert a one word string to Cat Latin
@@ -75,7 +79,17 @@ cat_latin(y)
 
 ```
 
+```{r expect failure}
+
+# The following code will result in an error message, as *cat_latin()* cannot be applied to a number. It is commented out so that the file can be knitted.
+
+# cat_latin(1)
+
+```
+
 ## Tests
+
+Three tests to demonstrate that *cat_latin()* works as expected.
 
 ```{r}
 
@@ -111,4 +125,4 @@ test_that("Expect output to be a character vector", {
 
 # Conclusion
 
-In conclusion, this Exercise shows the development of the function *cat_latin*, which converts words into the newly developed Cat Latin Cipher. Two examples were shown, and three tests run to show that the function works properly.
+In conclusion, this Exercise shows the development of the function *cat_latin*, which converts words into the newly developed Cat Latin Cipher. Three examples were shown, and three tests run to show that the function works properly.
