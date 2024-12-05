@@ -1,0 +1,103 @@
+---
+title: "Exercise 2"
+author: "Mia Simmons"
+date: "2024-11-28"
+output: github_document
+---
+
+# Introduction
+
+Welcome to Exercise 2! Here, we will make a function that will convert words into the brand new Cat Latin cipher. In Cat Latin, the last letter of a word is moved to the front, the word is repeated, and the end of the word has "-meow" added to it.
+
+---
+
+# Coding
+
+## Setup
+
+```{r setup}
+
+library(dplyr)
+library(tidyverse)
+library(stringr)
+
+```
+
+## Function
+
+```{r create function}
+#' Convert words into Cat Latin
+#'
+#' @description
+#'Moves the last letter of a word to the front and adds "-meow" to the end of it. Can be applied to lists of words, and is only applicable to character vectors.
+#'
+#' @param x The character vector or list of vectors to be used.
+#'
+#' @return A character vector
+#' @export
+#'
+#' @examples
+#' cat_latin("cat")
+
+cat_latin <- function(x) { 
+  
+  # This stops the function if the input is of the incorrect type
+  
+  if(!is.character(x)) { 
+    stop("Sorry, this function only works on character vectors") 
+  }
+  
+  # This converts the input into Cat Latin by re-arranging the components
+  
+   str_c(str_sub(x, -1), str_sub(x, end = -2), x, "-meow")
+}
+
+```
+
+## Examples
+
+```{r one word}
+
+# Convert a one word string to Cat Latin
+
+cat_latin("cat")
+
+```
+
+```{r multiple words}
+
+# Apply Cat Latin to multiple words
+
+y <- c("cat", "dog")
+
+cat_latin(y)
+
+```
+
+```{r expect error}
+
+# Expect error when applied to non-character
+
+cat_latin(1)
+
+```
+
+## Tests
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+---
+
+# Conclusion
+
+In conclusion, this Exercise shows the development of the function *cat_latin*, which converts words into the newly devloped Cat Latin Cipher.
