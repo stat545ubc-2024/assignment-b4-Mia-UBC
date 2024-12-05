@@ -20,6 +20,7 @@ Welcome to Exercise 2! Here, we will make a function that will convert words int
 library(dplyr)
 library(tidyverse)
 library(stringr)
+library(testthat)
 
 ```
 
@@ -74,25 +75,35 @@ cat_latin(y)
 
 ```
 
-```{r expect error}
-
-# Expect error when applied to non-character
-
-cat_latin(1)
-
-```
-
 ## Tests
 
 ```{r}
 
+# Test 1 - Non-character inputs result in an error
+
+test_that("Non-character input error", {
+  expect_error(cat_latin(15))
+})
+
 ```
 
-```{r}
+```{r visible result}
+
+# Test 2 - The function prints the result to the console
+
+test_that("Print result", {
+  expect_visible(cat_latin("Hello"))
+})
 
 ```
 
-```{r}
+```{r expected class}
+
+# Test 3 - Output is the expected class
+
+test_that("Expect output to be a character vector", {
+  expect_type(cat_latin("Hello"), "character")
+})
 
 ```
 
@@ -100,4 +111,4 @@ cat_latin(1)
 
 # Conclusion
 
-In conclusion, this Exercise shows the development of the function *cat_latin*, which converts words into the newly devloped Cat Latin Cipher.
+In conclusion, this Exercise shows the development of the function *cat_latin*, which converts words into the newly developed Cat Latin Cipher. Two examples were shown, and three tests run to show that the function works properly.
