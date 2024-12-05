@@ -1,19 +1,19 @@
 ---
 title: "Exercise 1"
-author: "Mia Simmons"
-date: "2024-11-28"
 output: github_document
 ---
 
 # Introduction
 
-Welcome to Exercise 1! Here, the 10 most common words in Jane Austen's book [Persuasion]{.underline}, excluding stop words, will be plotted.
+Welcome to Exercise 1! Here, the 10 most common words in Jane Austen's novel [Persuasion]{.underline}, excluding stop words, will be plotted.
 
 ------------------------------------------------------------------------
 
 # Code
 
 ## Setup
+
+Load the following libraries to ensure the code runs correctly.
 
 ```{r setup}
 
@@ -27,6 +27,8 @@ library(purrr)
 ```
 
 ## Filtering the dataset
+
+Here, the data from the *janeaustenr* package, specifically the data for [Persuasion]{.underline}, will be ordered into a table, with one column for words and one for the count, or number of occurrences, of each word. Additionally, white-space, punctuation, and stop words will be removed.
 
 ```{r filter}
 
@@ -51,28 +53,40 @@ per_table <- words_per[!words_per %in% stopwords_list] %>%
   setNames(c("words", "count")) %>%
   arrange(desc(count))
 
+glimpse(per_table)
+
 ```
 
 ## Plotting the words
 
-```{r}
+This code-chunk makes a new table, which is a subset of the above. This new table contains only the ten most common words and their counts.
+
+```{r top ten}
 
 # First, we need to make a subset of the data with only the ten most common words
 
-
+top_per_table <- per_table %>%
+  top_n(10)
 
 ```
 
-```{r}
+This code-chunk renders the plot of the ten most common words in [Persuasion]{.underline}. The bars are in descending order and have the counts displayed in text on them.
+
+```{r plot}
 
 # Then, we must render the plot of the words
 
-ggplot(per_table, aes(words)) +
-         geom_bar()
+ggplot(top_per_table, aes(x = reorder(words, count, decreasing = TRUE), y = count, fill = words)) +
+  geom_col() +
+  geom_text(size = 3,position = position_stack(vjust = 0.5), aes(label = count, fontface = "bold")) + 
+  labs(x = "Top 10 words", y = "Number of occurrences", title = "Ten most common words in Persuasion by Jane Austen") +
+  guides(fill = "none") +
+  theme_bw()
 
 ```
-
 
 ------------------------------------------------------------------------
 
 # Conclusion
+
+In conclusion, the top ten words from Jane Austen's novel [Persuasion]{.underline} were extracted from the *janeaustenr* package and plotted in a graph.
